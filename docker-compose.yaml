@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  service-app:
+    container_name: books_management_service
+    build: './'
+    image: gawaliniranjan/books_management_service:gke-mysql
+    environment:
+      MYSQL_DATABASE: book-management-db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: winter
+      MYSQL_HOST: 35.244.40.196
+    ports:
+      - "5000:5000"
+    restart: on-failure

@@ -14,4 +14,8 @@ docker-compose build
 
 # Run the container using the newly created image.
 
-docker run -d -p 5000:5000 --name books_management_service gawaliniranjan/books_management_service:gke-mysql
+docker run -d -p 5000:5000 --name books_management_service niranjang2/books_management_service:gke-mysql
+
+`------------------------------------------------------------------------------------------------------`
+1>
+zone - asia-south1-a

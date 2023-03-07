@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-mgmt-api-deploy
+  labels:
+    name: book-mgmt-api-deploy
+    app: book-management
+spec:
+  selector:
+    matchLabels:
+      name: book-mgmt-api-pod
+      app: book-management
+  template:
+    metadata:
+      name: book-mgmt-api-pod
+      labels:
+        name: book-mgmt-api-pod
+        app: book-management
+    spec:
+      containers:
+        - name: book-management-api-image
+          image: niranjang2/books_management_service:gke-mysql
+          env:
+          - name: MYSQL_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          envFrom:
+            - configMapRef:
+                name: database-config
+          ports:
+            - containerPort: 5000
+  replicas: 2

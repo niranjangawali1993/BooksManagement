@@ -5,6 +5,7 @@ metadata:
   labels:
     name: book-mgmt-api-service
     app: book-management
+  namespace: development
 spec:
   type: LoadBalancer
   selector:

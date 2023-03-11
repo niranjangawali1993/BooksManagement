@@ -5,7 +5,9 @@ metadata:
   labels:
     name: book-mgmt-api-deploy
     app: book-management
+  namespace: development
 spec:
+  replicas: 2
   selector:
     matchLabels:
       name: book-mgmt-api-pod
@@ -31,4 +33,3 @@ spec:
                 name: database-config
           ports:
             - containerPort: 5000
-  replicas: 2
